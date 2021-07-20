@@ -1,5 +1,3 @@
-
 class EmployeeInvoker:
-
-    def submit(self, command, daysWorked):
-        return command.execute(daysWorked)
+    def submit(self, command, days_worked):
+        return command.execute(days_worked)

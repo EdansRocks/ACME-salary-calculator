@@ -1,24 +1,23 @@
 from ...common.interface import Command
 
+
 class ReadUsers(Command):
+    def __init__(self, file_receiver):
+        self._file_receiver = file_receiver
 
-    def __init__(self, fileReceiver):
-        self._fileReceiver = fileReceiver
+    def execute(self, file_path):
+        return self._file_receiver.read_users(file_path)
 
-    def execute(self, filePath):
-        return self._fileReceiver.readUsers(filePath)
-
-    def redo(self, filePath):
-        self.execute(filePath)
+    def redo(self, file_path):
+        self.execute(file_path)
 
 
 class FileExists(Command):
+    def __init__(self, file_receiver):
+        self._file_receiver = file_receiver
 
-    def __init__(self, fileReceiver):
-        self._fileReceiver = fileReceiver
+    def execute(self, file_name):
+        return self._file_receiver.file_exists(file_name)
 
-    def execute(self, fileName):
-        return self._fileReceiver.fileExists(fileName)
-
-    def redo(self, fileName):
-        self.execute(fileName)
+    def redo(self, file_name):
+        self.execute(file_name)

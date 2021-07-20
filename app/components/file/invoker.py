@@ -1,5 +1,3 @@
-
 class FileInvoker:
-
-    def submit(self, command, filePath):
-        return command.execute(filePath)
+    def submit(self, command, file_path):
+        return command.execute(file_path)
